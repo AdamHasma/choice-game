@@ -83,8 +83,8 @@ let data = [{
     path: "9",
     question: 'Du holst dein Messer raus und stichst ihr in den Hals. Nach ein paar Sekunden merkst du wa du getan hast. Jetzt fliehst du.',
     answers: {
-      aEins: 'TO DO Lass ihre Leiche liegen und renn in dein abgelegenes Haus',
-      aZwei: 'TO DO Schmeiß die Leiche in ein nahgelegenes Teich'
+      aEins: 'Lass ihre Leiche liegen und renn in dein abgelegenes Haus',
+      aZwei: 'Schmeiß die Leiche in ein nahgelegenes Teich'
     }
   },
   {
