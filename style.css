@@ -29,8 +29,10 @@ body {
 }
 
 .titel2 {
+  opacity: .2;
+  font-size: 80px;
   position: absolute;
-  top: 10px;
+  top: -130px;
   font-weight: 700;
   font-family: Fraunces;
 }
@@ -73,12 +75,11 @@ body {
 }
 
 .container {
-  padding-bottom: 100px;
   transition: opacity 1s;
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   transition: background 0.5s;
 }
 
@@ -123,8 +124,19 @@ body {
     font-size: 24px;
   }
 
+  .titel2 {
+    font-size: 36px;
+    position: absolute;
+    top: -80px;
+  }
+
+  .container {
+    padding-bottom: 70px;
+    align-items: flex-end;
+  }
+
   .titel-container {
-    padding:10px 20px;
+    padding: 10px 20px;
   }
 
   .aZwei, .aEins {
