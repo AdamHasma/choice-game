@@ -3,6 +3,7 @@ const aZwei = document.querySelector('.aZwei');
 const restart = document.querySelector('.restart');
 const body = document.querySelector('body');
 const titel = document.querySelector('.titel');
+const fadeContainer = document.querySelector('.fade-container');
 
 let path = 0;
 
@@ -91,7 +92,7 @@ let data = [{
     path: "10",
     question: 'Nach paar mal googlen, hast du 2 Sachen gefunden, Illuminati und Youtube. Welche der beiden Dinge gehst du nach?',
     answers: {
-      aEins: 'Illuminati ▲',
+      aEins: 'Illuminati 👁',
       aZwei: 'Youtube ▶'
     }
   },
@@ -161,6 +162,10 @@ let data = [{
   },
 ]
 
+function fade() {
+  fadeContainer.style.opacity = "0"
+}
+
 window.addEventListener('load', function() {
   titel.innerText = data[path].question;
   aEins.innerText = data[path].answers.aEins;
@@ -168,6 +173,9 @@ window.addEventListener('load', function() {
 });
 
 aEins.addEventListener("click", function() {
+  fadeContainer.style.opacity = "1";
+  setTimeout(fade, 1000);
+  setTimeout( function(){
   if (path === 0) {
     go(2);
   } else if (path === 2) {
@@ -191,10 +199,13 @@ aEins.addEventListener("click", function() {
     go(1);
   } else if (path === 13) {
     end(2);
-  }
+  }}, 1000);
 });
 
 aZwei.addEventListener("click", function() {
+  fadeContainer.style.opacity = "1";
+  setTimeout(fade, 700);
+  setTimeout( function(){
   if (path === 0) {
     end(1);
   } else if (path === 2) {
@@ -216,7 +227,7 @@ aZwei.addEventListener("click", function() {
     end(3);
   } else if (path === 13) {
     end(3);
-  }
+  }}, 700);
 });
 
 function go(plus) {
@@ -235,6 +246,9 @@ function end(plus) {
 };
 
 restart.addEventListener("click", function() {
+  fadeContainer.style.opacity = "1";
+  setTimeout(fade, 700);
+  setTimeout( function(){
   path = 0;
   aEins.style.display = "inline-block";
   aZwei.style.display = "inline-block";
@@ -242,4 +256,5 @@ restart.addEventListener("click", function() {
   titel.innerText = data[path].question;
   aEins.innerText = data[path].answers.aEins;
   aZwei.innerText = data[path].answers.aZwei;
+  }, 700);
 });

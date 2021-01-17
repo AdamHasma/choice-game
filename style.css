@@ -1,29 +1,70 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
 }
 
 *:focus {
   outline: none;
 }
 
-body{
-  color: rgb(236, 235, 212);
-  background-color: rgb(22, 22, 22);
-  transition: background-color 2.5s;
+body, html {
+  overflow: hidden;
+  width: 100vw;
+  height: 100%;
 }
 
-.titel{
-  height:200px;
-  width:80vw;
+body {
+  position: fixed;
+  overflow: hidden;
+  color: rgb(236, 235, 212);
+  background-color: rgb(22, 22, 22);
+}
+
+.titel {
+  vertical-align: middle;
+}
+
+.fade-container {
+  opacity: 0;
+  pointer-events: none;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 3;
+  background-color: rgb(22, 22, 22);
+  transition: opacity .7s;
+}
+
+.titel-container {
+  display: flex;
+  align-items: center;
+  min-height: 200px;
+  width: 100%;
+  max-width: 1000px;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  padding: 20px 40px;
+  border: 2px solid rgba(236, 235, 212, .5);
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
 }
 
 .container {
-  width: 100vw;
+  transition: opacity 1s;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -32,13 +73,15 @@ body{
 }
 
 .container2 {
+  position: absolute;
+  padding: 0px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.restart{
+.restart {
   display: none;
 }
 
@@ -55,10 +98,34 @@ body{
   transition: transform .1s;
 }
 
-.aEins:hover, .aZwei:hover, .restart:hover{
-  transform: translate(0,2px);
+.aEins:hover, .aZwei:hover, .restart:hover {
+  transform: translate(0, 2px);
 }
 
-.aEins:active, .aZwei:active, .restart:active{
- transform: translate(0,5px);
+.aEins:active, .aZwei:active, .restart:active {
+  transform: translate(0, 5px);
+}
+
+@media (max-width:600px) {
+  .titel {
+    font-size: 24px;
+  }
+
+  .aZwei, .aEins {
+    padding: 20px 40px;
+  }
+
+  .aZwei {
+    margin-left: unset !important;
+  }
+
+  .aEins {
+    margin-bottom: 20px;
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
