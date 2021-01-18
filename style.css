@@ -29,6 +29,7 @@ body {
 }
 
 .titel2 {
+  z-index: 4;
   opacity: .2;
   font-size: 80px;
   position: absolute;
@@ -158,6 +159,9 @@ body {
 
   .button-container {
     width: 100%;
+    display:flex;
     align-self: flex-end;
+    justify-content: center;
+    flex-direction: column;
   }
 }
