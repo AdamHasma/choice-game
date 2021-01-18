@@ -6,8 +6,9 @@ const titel = document.querySelector('.titel');
 const titel3 = document.querySelector('.titel3');
 const fadeContainer = document.querySelector('.fade-container');
 const nameInput = document.getElementById("name-input");
+const mafiaInput = document.getElementById("mafia-input");
 
-let character = "";
+let character = "John";
 let mafia = "mafia";
 
 let path = -1;
@@ -19,6 +20,17 @@ let introData = [{
   text: `${character} is the leader of the notorious mafia called ${mafia}`,
   title: `Now the name of your mafia.`
 }];
+
+nameInput.oninput = function (){
+  character = nameInput.value;
+  introData[0].text = `${character} is the leader of the notorious mafia called <span><input id="mafia-input" type="text" size="25" placeholder="mafia name" autofocus></span>`
+}
+
+// mafiaInput.oninput = function (){
+//   mafia = mafiaInput.value;
+//   introData[1].text = `${mafia} is the leader of the notorious mafia called <span><input id="mafia-input" type="text" size="25" placeholder="mafia name" autofocus></span>`
+// }
+
 
 let data = "";
 
@@ -34,17 +46,12 @@ function fade() {
   fadeContainer.style.opacity = "0"
 }
 
-window.addEventListener('load', function() {
-
-});
-
 aEins.addEventListener("click", function() {
   fadeContainer.style.opacity = "1";
   setTimeout(fade, 1000);
   setTimeout(function() {
     if (introPath === 0) {
-      character = nameInput.value;
-      goIntro(0);
+      goIntro2(0);
     }
 
     if (path === 0) {
@@ -113,6 +120,12 @@ function go(plus) {
 function goIntro(plus) {
   introPath += plus;
   titel.innerText = introData[introPath].text;
+  titel3.innerText = introData[introPath].title;
+};
+
+function goIntro2(plus) {
+  introPath += plus;
+  titel.innerHTML = introData[introPath].text;
   titel3.innerText = introData[introPath].title;
 };
 
