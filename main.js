@@ -3,9 +3,22 @@ const aZwei = document.querySelector('.aZwei');
 const restart = document.querySelector('.restart');
 const body = document.querySelector('body');
 const titel = document.querySelector('.titel');
+const titel3 = document.querySelector('.titel3');
 const fadeContainer = document.querySelector('.fade-container');
+const nameInput = document.getElementById("name-input");
 
-let path = 0;
+let character = "";
+let mafia = "mafia";
+
+let path = -1;
+let introPath = 0;
+
+aZwei.style.display = "none";
+
+let introData = [{
+  text: `${character} is the leader of the notorious mafia called ${mafia}`,
+  title: `Now the name of your mafia.`
+}];
 
 let data = "";
 
@@ -22,15 +35,18 @@ function fade() {
 }
 
 window.addEventListener('load', function() {
-  titel.innerText = data[path].question;
-  aEins.innerText = data[path].answers.aEins;
-  aZwei.innerText = data[path].answers.aZwei;
+
 });
 
 aEins.addEventListener("click", function() {
   fadeContainer.style.opacity = "1";
   setTimeout(fade, 1000);
   setTimeout(function() {
+    if (introPath === 0) {
+      character = nameInput.value;
+      goIntro(0);
+    }
+
     if (path === 0) {
       go(2);
     } else if (path === 2) {
@@ -94,6 +110,12 @@ function go(plus) {
   aZwei.innerText = data[path].answers.aZwei;
 };
 
+function goIntro(plus) {
+  introPath += plus;
+  titel.innerText = introData[introPath].text;
+  titel3.innerText = introData[introPath].title;
+};
+
 function end(plus) {
   path += plus;
   titel.innerText = data[path].question;
@@ -115,3 +137,8 @@ restart.addEventListener("click", function() {
     aZwei.innerText = data[path].answers.aZwei;
   }, 700);
 });
+
+setTimeout(function() {
+  titel.innerText = character;
+  console.log(1);
+}, 5000)

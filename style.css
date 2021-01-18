@@ -28,6 +28,12 @@ body {
   background-color: rgb(22, 22, 22);
 }
 
+h2.titel3{
+  font-size: 24px;
+  margin-bottom: 20px;
+  opacity: .7;
+}
+
 .titel2 {
   z-index: 4;
   opacity: .2;
@@ -38,10 +44,12 @@ body {
   font-family: Fraunces;
 }
 
-.titel {
+.titel, input, .titel3 {
+  color: rgb(236, 235, 212);
   line-height: 1.5;
   font-weight: 400;
   font-family: Fraunces;
+  font-size: 32px;
 }
 
 .fade-container {
@@ -95,12 +103,12 @@ body {
   display: none;
 }
 
-.aEins, .aZwei, .restart {
+.aEins, .aZwei, .restart{
   font-size: 16px;
   z-index: 2;
   letter-spacing: 1px;
   cursor: pointer;
-  color: black;
+  color: rgb(22, 22, 22);
   background: rgb(236, 235, 212);
   padding: 10px 20px;
   text-transform: uppercase;
@@ -109,12 +117,17 @@ body {
   transition: transform .1s;
 }
 
-.aEins:hover, .aZwei:hover, .restart:hover {
+.aEins:hover, .aZwei:hover, .restart:hover{
   transform: translate(0, 2px);
 }
 
-.aEins:active, .aZwei:active, .restart:active {
+.aEins:active, .aZwei:active, .restart:active{
   transform: translate(0, 5px);
+}
+
+input{
+  background: none;
+  border: none;
 }
 
 @media (max-width:600px) {
