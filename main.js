@@ -12,6 +12,7 @@ let data = "";
 async function getData() {
   const response = await fetch('data.json');
   data = await response.json();
+  fadeContainer.style.height = `${document.body.scrollHeight}px`
 }
 
 getData();
@@ -24,7 +25,6 @@ window.addEventListener('load', function() {
   titel.innerText = data[path].question;
   aEins.innerText = data[path].answers.aEins;
   aZwei.innerText = data[path].answers.aZwei;
-  fadeContainer.style.height = `${document.body.scrollHeight}px`
 });
 
 aEins.addEventListener("click", function() {
