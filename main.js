@@ -137,8 +137,3 @@ restart.addEventListener("click", function() {
     aZwei.innerText = data[path].answers.aZwei;
   }, 700);
 });
-
-setTimeout(function() {
-  titel.innerText = character;
-  console.log(1);
-}, 5000)
