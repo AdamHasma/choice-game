@@ -28,13 +28,13 @@ body {
   background-color: rgb(22, 22, 22);
 }
 
-h2.titel3{
+h2.title3{
   font-size: 24px;
   margin-bottom: 20px;
   opacity: .7;
 }
 
-.titel2 {
+.title2 {
   z-index: 4;
   opacity: .2;
   font-size: 80px;
@@ -44,7 +44,7 @@ h2.titel3{
   font-family: Fraunces;
 }
 
-.titel, input, .titel3 {
+.title, input, .title3 {
   color: rgb(236, 235, 212);
   line-height: 1.5;
   font-weight: 400;
@@ -63,10 +63,10 @@ h2.titel3{
   transition: opacity .7s;
 }
 
-.titel-container {
+.title-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  min-height: 200px;
   width: 100%;
   max-width: 1000px;
   text-align: center;
@@ -99,11 +99,11 @@ h2.titel3{
   flex-direction: column;
 }
 
-.restart {
+.restart, .second{
   display: none;
 }
 
-.aEins, .aZwei, .restart{
+.aEins, .aZwei, .restart, .aDrei{
   font-size: 16px;
   z-index: 2;
   letter-spacing: 1px;
@@ -117,11 +117,11 @@ h2.titel3{
   transition: transform .1s;
 }
 
-.aEins:hover, .aZwei:hover, .restart:hover{
+.aEins:hover, .aZwei:hover, .restart:hover, .aDrei:hover{
   transform: translate(0, 2px);
 }
 
-.aEins:active, .aZwei:active, .restart:active{
+.aEins:active, .aZwei:active, .restart:active, .aDrei:active{
   transform: translate(0, 5px);
 }
 
@@ -132,12 +132,12 @@ input{
 }
 
 @media (max-width:600px) {
-  .titel {
+  .title {
     text-align: left;
     font-size: 24px;
   }
 
-  .titel2 {
+  .title2 {
     font-size: 36px;
     position: absolute;
     top: 20px;
@@ -154,7 +154,7 @@ input{
     justify-content: space-around;
   }
 
-  .titel-container {
+  .title-container {
     padding: 10px 20px;
   }
 

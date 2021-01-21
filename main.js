@@ -2,8 +2,9 @@ const aEins = document.querySelector('.aEins');
 const aZwei = document.querySelector('.aZwei');
 const restart = document.querySelector('.restart');
 const body = document.querySelector('body');
-const titel = document.querySelector('.titel');
-const titel3 = document.querySelector('.titel3');
+const title = document.querySelector('.title');
+const secondTitle = document.querySelector('.second');
+const title3 = document.querySelector('.title3');
 const fadeContainer = document.querySelector('.fade-container');
 const nameInput = document.getElementById("name-input");
 const mafiaInput = document.getElementById("mafia-input");
@@ -12,32 +13,39 @@ let character = "John";
 let mafia = "mafia";
 
 let path = -1;
-let introPath = 0;
+let introPath = -1;
 
 aZwei.style.display = "none";
+mafiaInput.style.display = "none";
+fadeContainer.style.height = `${document.body.scrollHeight}px`
 
 let introData = [{
   text: `${character} is the leader of the notorious mafia called ${mafia}`,
   title: `Now the name of your mafia.`
+}, {
+  text: `${mafia} is <button class="aEins">Go on</button> <button class="aZwei">Zwei</button> <button class="restart">3</button>`,
+  title: `What type of Mafia should ${mafia} be?`
 }];
 
-nameInput.oninput = function (){
+nameInput.oninput = () => {
   character = nameInput.value;
-  introData[0].text = `${character} is the leader of the notorious mafia called <span><input id="mafia-input" type="text" size="25" placeholder="mafia name" autofocus></span>`
-}
+  introData[0].text = `${character} is the leader of the notorious mafia called`
+};
 
-// mafiaInput.oninput = function (){
-//   mafia = mafiaInput.value;
-//   introData[1].text = `${mafia} is the leader of the notorious mafia called <span><input id="mafia-input" type="text" size="25" placeholder="mafia name" autofocus></span>`
-// }
+mafiaInput.oninput = () => {
+  mafia = mafiaInput.value;
+  introData[1].text = `${mafia} is <div class="button-container">
+    <button class="aDrei">merciful</button>
+    <button class="aEins">unscrupulous</button>
+    <button class="aZwei">divided (hard)</button></div>`
+  introData[1].title = `What type of Mafia should ${mafia} be?`
+};
 
-
-let data = "";
+let mercifulData = "";
 
 async function getData() {
-  const response = await fetch('data.json');
-  data = await response.json();
-  fadeContainer.style.height = `${document.body.scrollHeight}px`
+  const response = await fetch('mercifulData.json');
+  mercifulData = await response.json();
 }
 
 getData();
@@ -50,10 +58,15 @@ aEins.addEventListener("click", function() {
   fadeContainer.style.opacity = "1";
   setTimeout(fade, 1000);
   setTimeout(function() {
-    if (introPath === 0) {
-      goIntro2(0);
+    if (introPath === -1) {
+      goIntro2(1);
+      nameInput.style.display = "none";
+      mafiaInput.style.display = "inline";
+    } else if (introPath === 0) {
+      goIntro2(1);
+      mafiaInput.style.display = "none";
+      aEins.style.display = "none";
     }
-
     if (path === 0) {
       go(2);
     } else if (path === 2) {
@@ -112,26 +125,26 @@ aZwei.addEventListener("click", function() {
 
 function go(plus) {
   path += plus;
-  titel.innerText = data[path].question;
+  title.innerText = data[path].question;
   aEins.innerText = data[path].answers.aEins;
   aZwei.innerText = data[path].answers.aZwei;
 };
 
 function goIntro(plus) {
   introPath += plus;
-  titel.innerText = introData[introPath].text;
-  titel3.innerText = introData[introPath].title;
+  title.innerText = introData[introPath].text;
+  title3.innerText = introData[introPath].title;
 };
 
 function goIntro2(plus) {
   introPath += plus;
-  titel.innerHTML = introData[introPath].text;
-  titel3.innerText = introData[introPath].title;
+  title.innerHTML = introData[introPath].text;
+  title3.innerHTML = introData[introPath].title;
 };
 
 function end(plus) {
   path += plus;
-  titel.innerText = data[path].question;
+  title.innerText = data[path].question;
   aEins.style.display = "none";
   aZwei.style.display = "none";
   restart.style.display = "inline-block";
@@ -145,7 +158,7 @@ restart.addEventListener("click", function() {
     aEins.style.display = "inline-block";
     aZwei.style.display = "inline-block";
     restart.style.display = "none";
-    titel.innerText = data[path].question;
+    title.innerText = data[path].question;
     aEins.innerText = data[path].answers.aEins;
     aZwei.innerText = data[path].answers.aZwei;
   }, 700);
