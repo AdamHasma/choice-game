@@ -17,7 +17,7 @@ let introPath = -1;
 
 aZwei.style.display = "none";
 mafiaInput.style.display = "none";
-fadeContainer.style.height = `${document.body.scrollHeight}px`
+fadeContainer.style.height = `${document.body.scrollHeight}px`;
 
 let introData = [{
   text: `${character} is the leader of the notorious mafia called ${mafia}`,
@@ -54,7 +54,7 @@ function fade() {
   fadeContainer.style.opacity = "0"
 }
 
-aEins.addEventListener("click", function() {
+const aEinsFunction = () => {
   fadeContainer.style.opacity = "1";
   setTimeout(fade, 1000);
   setTimeout(function() {
@@ -92,9 +92,9 @@ aEins.addEventListener("click", function() {
       end(2);
     }
   }, 1000);
-});
+};
 
-aZwei.addEventListener("click", function() {
+const aZweiFunction = () => {
   fadeContainer.style.opacity = "1";
   setTimeout(fade, 700);
   setTimeout(function() {
@@ -121,7 +121,21 @@ aZwei.addEventListener("click", function() {
       end(3);
     }
   }, 700);
+};
+
+aEins.addEventListener("click", aEinsFunction);
+nameInput.addEventListener("keyup", event => {
+  if (event.isComposing || event.keyCode === 13) {
+    aEinsFunction();
+  }
 });
+mafiaInput.addEventListener("keyup", event => {
+  if (event.isComposing || event.keyCode === 13) {
+    aEinsFunction();
+  }
+});
+
+aZwei.addEventListener("click", aZweiFunction);
 
 function go(plus) {
   path += plus;
