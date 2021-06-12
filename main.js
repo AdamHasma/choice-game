@@ -1,45 +1,33 @@
-const aEins = document.querySelector('.aEins');
-const aZwei = document.querySelector('.aZwei');
+const btnOne = document.querySelector('.btn-one');
+const btnTwo = document.querySelector('.btn-two');
 const restart = document.querySelector('.restart');
 const body = document.querySelector('body');
-const title = document.querySelector('.title');
-const secondTitle = document.querySelector('.second');
-const title3 = document.querySelector('.title3');
+const text = document.querySelector('.text');
 const fadeContainer = document.querySelector('.fade-container');
-const nameInput = document.getElementById("name-input");
-const mafiaInput = document.getElementById("mafia-input");
+const input = document.getElementById("input");
+const input2 = document.getElementById("input-2");
 
-let character = "John";
-let mafia = "mafia";
+let inputValue = "Test";
 
 let path = -1;
 let introPath = -1;
 
-aZwei.style.display = "none";
-mafiaInput.style.display = "none";
+btnTwo.style.display = "none";
+restart.style.display = "none";
+input.style.display = "none";
+input2.style.display = "none";
 fadeContainer.style.height = `${document.body.scrollHeight}px`;
 
 let introData = [{
-  text: `${character} is the leader of the notorious mafia called ${mafia}`,
-  title: `Now the name of your mafia.`
+  text: `But even small villages like these have their own secrets.`,
 }, {
-  text: `${mafia} is <button class="aEins">Go on</button> <button class="aZwei">Zwei</button> <button class="restart">3</button>`,
-  title: `What type of Mafia should ${mafia} be?`
-}];
-
-nameInput.oninput = () => {
-  character = nameInput.value;
-  introData[0].text = `${character} is the leader of the notorious mafia called`
-};
-
-mafiaInput.oninput = () => {
-  mafia = mafiaInput.value;
-  introData[1].text = `${mafia} is <div class="button-container">
-    <button class="aDrei">merciful</button>
-    <button class="aEins">unscrupulous</button>
-    <button class="aZwei">divided (hard)</button></div>`
-  introData[1].title = `What type of Mafia should ${mafia} be?`
-};
+  text: `After a quiet day of work in the library of the neighboring village where you are working as a librarian. You ride eight kilometers to your home on your bike, as usual.`,
+}, {
+  text: `Arriving in ${inputValue}, you drive past your yard to your large empty barn to your front door.`,
+}, {
+  text: `It is not particularly large and modern, but it is enough for someone living alone.`,
+}
+];
 
 let mercifulData = "";
 
@@ -54,18 +42,26 @@ function fade() {
   fadeContainer.style.opacity = "0"
 }
 
-const aEinsFunction = () => {
+const btnOneFunction = () => {
   fadeContainer.style.opacity = "1";
-  setTimeout(fade, 1000);
+  setTimeout(fade, 700);
   setTimeout(function() {
     if (introPath === -1) {
       goIntro2(1);
-      nameInput.style.display = "none";
-      mafiaInput.style.display = "inline";
+      input.style.display = 'block';
     } else if (introPath === 0) {
-      goIntro2(1);
-      mafiaInput.style.display = "none";
-      aEins.style.display = "none";
+      // If no value is typed in
+      if (!input.value) {
+        input.placeholder = 'You gotta type in a name, mate'
+      } else {
+        input.style.display = "none";
+        goIntro2(1);
+      }
+    } else if (introPath === 1) {
+      goIntro2(1)
+    } else if (introPath === 2) {
+      input2.style.display = 'block';
+      goIntro2(1)
     }
     if (path === 0) {
       go(2);
@@ -86,15 +82,15 @@ const aEinsFunction = () => {
     } else if (path === 11) {
       end(3);
     } else if (path === 12) {
-      aZwei.style.display = "inline-block";
+      btnTwo.style.display = "inline-block";
       go(1);
     } else if (path === 13) {
       end(2);
     }
-  }, 1000);
+  }, 700);
 };
 
-const aZweiFunction = () => {
+const btnTwoFunction = () => {
   fadeContainer.style.opacity = "1";
   setTimeout(fade, 700);
   setTimeout(function() {
@@ -114,7 +110,7 @@ const aZweiFunction = () => {
       end(9);
     } else if (path === 10) {
       go(2);
-      aZwei.style.display = "none";
+      btnTwo.style.display = "none";
     } else if (path === 11) {
       end(3);
     } else if (path === 13) {
@@ -123,44 +119,47 @@ const aZweiFunction = () => {
   }, 700);
 };
 
-aEins.addEventListener("click", aEinsFunction);
-nameInput.addEventListener("keyup", event => {
+btnOne.addEventListener("click", btnOneFunction);
+
+input.addEventListener("keyup", event => {
   if (event.isComposing || event.keyCode === 13) {
-    aEinsFunction();
-  }
-});
-mafiaInput.addEventListener("keyup", event => {
-  if (event.isComposing || event.keyCode === 13) {
-    aEinsFunction();
-  }
+    btnOneFunction();
+    inputValue = input.value;
+    }
 });
 
-aZwei.addEventListener("click", aZweiFunction);
+btnTwo.addEventListener("click", btnTwoFunction);
 
 function go(plus) {
   path += plus;
-  title.innerText = data[path].question;
-  aEins.innerText = data[path].answers.aEins;
-  aZwei.innerText = data[path].answers.aZwei;
+  text.innerText = data[path].question;
+  btnOne.innerText = data[path].answers.btnOne;
+  btnTwo.innerText = data[path].answers.btnTwo;
 };
 
 function goIntro(plus) {
   introPath += plus;
-  title.innerText = introData[introPath].text;
-  title3.innerText = introData[introPath].title;
+  text.innerText = introData[introPath].text;
 };
 
 function goIntro2(plus) {
-  introPath += plus;
-  title.innerHTML = introData[introPath].text;
-  title3.innerHTML = introData[introPath].title;
+  // when there are variables used the ifs get executed
+  if (introPath === 1) {
+    introPath += plus;
+    inputValue = input.value;
+    introData[introPath].text = `Arriving in ${inputValue}, you drive past your yard to your large empty barn to your front door.`;
+    text.innerHTML = introData[introPath].text;
+  } else {
+    introPath += plus;
+    text.innerHTML = introData[introPath].text;
+  }
 };
 
 function end(plus) {
   path += plus;
-  title.innerText = data[path].question;
-  aEins.style.display = "none";
-  aZwei.style.display = "none";
+  text.innerText = data[path].question;
+  btnOne.style.display = "none";
+  btnTwo.style.display = "none";
   restart.style.display = "inline-block";
 };
 
@@ -169,11 +168,11 @@ restart.addEventListener("click", function() {
   setTimeout(fade, 700);
   setTimeout(function() {
     path = 0;
-    aEins.style.display = "inline-block";
-    aZwei.style.display = "inline-block";
+    btnOne.style.display = "inline-block";
+    btnTwo.style.display = "inline-block";
     restart.style.display = "none";
-    title.innerText = data[path].question;
-    aEins.innerText = data[path].answers.aEins;
-    aZwei.innerText = data[path].answers.aZwei;
+    text.innerText = data[path].question;
+    btnOne.innerText = data[path].answers.btnOne;
+    btnTwo.innerText = data[path].answers.btnTwo;
   }, 700);
 });

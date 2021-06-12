@@ -1,8 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;400;700&display=swap");
+$primary: #E6E6E6;
+$secondary: #2E3031;
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;400;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 *,
@@ -26,24 +29,22 @@ html {
 }
 
 body {
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 400;
   line-height: 1.5;
   position: fixed;
   overflow-x: hidden;
-  color: #E6E6E6;
-  background-color: #2E3031;
+  color: $primary;
+  background-color: $secondary;
 }
 
 html {
   font-size: 112.5%;
 }
-
 /*18px*/
 a {
   text-decoration: none;
 }
-
 @font-face {
   font-family: "PP Woodland";
   src: url("assets/PPWoodland-Regular.woff") format("woff");
@@ -68,6 +69,7 @@ a {
   font-weight: 800;
   font-style: normal;
 }
+
 p {
   margin-bottom: 1rem;
 }
@@ -77,7 +79,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "PP Woodland", serif;
+  font-family: 'PP Woodland', serif;
   font-weight: 400;
   line-height: 1.1;
   text-align: center;
@@ -132,9 +134,10 @@ small {
   transform: translateY(calc(-50% + 120px));
   top: 50%;
   width: 780px;
+  // height: 415px;
 }
 
-.box {
+.box{
   background: linear-gradient(239.15deg, #DDDDD5 -7.89%, #C9C9C9 105.72%);
   box-shadow: 0px 40px 84px rgba(0, 0, 0, 0.15);
   border-radius: 32px;
@@ -151,7 +154,7 @@ small {
 .btn {
   cursor: pointer;
   font-weight: 600;
-  border: 4px solid #2E3031;
+  border: 4px solid $secondary;
   background: none;
   display: flex;
   flex-direction: column;
@@ -160,9 +163,9 @@ small {
   padding: 8px 16px;
 }
 
-.btn:hover {
-  background: #2E3031;
-  color: #E6E6E6;
+.btn:hover{
+  background: $secondary;
+  color: $primary;
 }
 
 .game-btn {
@@ -210,11 +213,11 @@ small {
 }
 
 body#razar {
-  background: #E6E6E6;
-  color: #2E3031;
+  background: $primary;
+  color: $secondary;
 }
 
-.fade-container {
+.fade-container{
   opacity: 0;
   pointer-events: none;
   overflow: hidden;
@@ -222,8 +225,8 @@ body#razar {
   position: absolute;
   top: 300px;
   z-index: 3;
-  background-color: #E6E6E6;
-  transition: opacity 0.7s;
+  background-color: $primary;
+  transition: opacity .7s;
 }
 
 input {
@@ -237,14 +240,12 @@ input {
   font-family: monospace;
 }
 
-input#input-2 {
+input#input-2{
   width: 17ch;
 }
 
-.text-box {
+.text-box{
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-
-/*# sourceMappingURL=style.css.map */
