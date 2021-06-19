@@ -3,11 +3,13 @@ const btnTwo = document.querySelector('.btn-two');
 const restart = document.querySelector('.restart');
 const body = document.querySelector('body');
 const text = document.querySelector('.text');
+const title = document.querySelector('.title');
 const fadeContainer = document.querySelector('.fade-container');
 const input = document.getElementById("input");
 const input2 = document.getElementById("input-2");
 
 let inputValue = "Test";
+let inputValue2 = "Test";
 
 let path = -1;
 let introPath = -1;
@@ -29,11 +31,9 @@ let introData = [{
 }
 ];
 
-let mercifulData = "";
-
 async function getData() {
-  const response = await fetch('mercifulData.json');
-  mercifulData = await response.json();
+  const response = await fetch('dasPaketData.json');
+  dasPaketData = await response.json();
 }
 
 getData();
@@ -49,6 +49,7 @@ const btnOneFunction = () => {
     if (introPath === -1) {
       goIntro2(1);
       input.style.display = 'block';
+      input.focus();
     } else if (introPath === 0) {
       // If no value is typed in
       if (!input.value) {
@@ -61,31 +62,24 @@ const btnOneFunction = () => {
       goIntro2(1)
     } else if (introPath === 2) {
       input2.style.display = 'block';
+      input2.focus();
       goIntro2(1)
+    } else if (introPath === 3) {
+      go(1);
     }
+
     if (path === 0) {
-      go(2);
+      input2.style.display = 'none';
+      btnTwo.style.display = 'block';
+      document.querySelector(".btn-two > button").disabled = true;
+      go(0);
+    } else if (path === 1) {
+      btnTwo.style.display = 'none';
+      go(0);
     } else if (path === 2) {
-      end(1);
-    } else if (path === 4) {
-      go(2);
-    } else if (path === 6) {
-      go(1);
-    } else if (path === 7) {
-      go(3);
-    } else if (path === 8) {
-      go(1);
-    } else if (path === 9) {
-      end(8);
-    } else if (path === 10) {
-      go(1);
-    } else if (path === 11) {
-      end(3);
-    } else if (path === 12) {
-      btnTwo.style.display = "inline-block";
-      go(1);
-    } else if (path === 13) {
-      end(2);
+      btnTwo.style.display = 'block';
+      document.querySelector(".btn-two > button").disabled = true;
+      go(0);
     }
   }, 700);
 };
@@ -98,29 +92,19 @@ const btnTwoFunction = () => {
       end(1);
     } else if (path === 2) {
       go(2);
-    } else if (path === 4) {
-      end(1);
-    } else if (path === 6) {
-      go(2);
-    } else if (path === 7) {
-      go(2);
-    } else if (path === 8) {
-      go(-1);
-    } else if (path === 9) {
-      end(9);
-    } else if (path === 10) {
-      go(2);
-      btnTwo.style.display = "none";
-    } else if (path === 11) {
-      end(3);
-    } else if (path === 13) {
-      end(3);
     }
   }, 700);
 };
 
 btnOne.addEventListener("click", btnOneFunction);
 
+// Go on by pressing enter
+input2.addEventListener("keyup", event => {
+  if (event.isComposing || event.keyCode === 13) {
+    btnOneFunction();
+    inputValue2 = input2.value;
+    }
+});
 input.addEventListener("keyup", event => {
   if (event.isComposing || event.keyCode === 13) {
     btnOneFunction();
@@ -132,9 +116,13 @@ btnTwo.addEventListener("click", btnTwoFunction);
 
 function go(plus) {
   path += plus;
-  text.innerText = data[path].question;
-  btnOne.innerText = data[path].answers.btnOne;
-  btnTwo.innerText = data[path].answers.btnTwo;
+  text.innerText = dasPaketData[path].question;
+  document.querySelector(".btn-one > button").innerText = dasPaketData[path].answers.btnOne;
+  document.querySelector(".btn-two > button").innerText = dasPaketData[path].answers.btnTwo;
+  if (path === 0) {
+    inputValue2 = input2.value;
+    title.innerHTML = `Chapter 1`;
+  }
 };
 
 function goIntro(plus) {

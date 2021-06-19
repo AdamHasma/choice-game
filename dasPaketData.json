@@ -1,134 +1,134 @@
 [{
   "path": "0",
-  "question": "Du bist Andreas und du wirst von zwei bekannten Leuten (Ilyas und Tchadarou) verfolgt. Was machst du?",
+  "question": "You take on your pajama after you arrived home and...",
   "answers": {
-    "aEins": "fliehen",
-    "aZwei": "sich den beiden stellen"
+    "btnOne": "Rest on your couch watching TV",
+    "btnTwo": "Go to the kitched and cook (coming soon)"
   }
 }, {
   "path": "1",
-  "question": "Du hast verloren. Beide waren dir um weitem überlegen. Besonders im Video Editing.",
+  "question": "Exhausted you get up from the couch and open the front door. In front of you stands a tall elderly gentleman dressed in black. Black coat with a black fedora and a small package in his hand.",
   "answers": {
-    "aEins": "",
-    "aZwei": ""
+    "btnOne": "Go on",
+    "btnTwo": ""
   }
 }, {
   "path": "2",
-  "question": "Du schaffst es vorerst zu fliehen. Doch jetzt steht Muslim vor dir. Er sieht verärgert aus. Was tust du?",
+  "question": "With a grim annoyed look on his face, the older gentleman asks without any greeting, \"Your neighbor, Mr. Schuster is not available right now, can I leave the package to you?\"",
   "answers": {
-    "aEins": "Um Verzeihung bitten",
-    "aZwei": "Sage: \"Ich lerne gerade wie man Videos schneidet\""
+    "btnOne": "Take the package",
+    "btnTwo": "Deny the package (coming soon)"
   }
 }, {
   "path": "3",
-  "question": "Muslim ist von deiner Schwäche angeekelt. Er bringt dich um.",
+  "question": "Full of rage, the older gentleman yells at you: \"You incompetent human being, can't you even accept a package? You should be taught some manners.\" \r What do you do now?",
   "answers": {
-    "aEins": "",
-    "aZwei": ""
+    "btnOne": "Close the front door immediately to avoid a confrontation",
+    "btnTwo": "Provoke back and start a confrontation"
   }
 }, {
   "path": "4",
   "question": "Er verschont dich und sagt: \"Ok, aber du musst in einem Monat wissen, wie man das Hintergrundrauschen entfernt, sonst werde ich dich umbringen.\"",
   "answers": {
-    "aEins": "Bedanke dich und gehe weiter",
-    "aZwei": "Sage: \"Das schaffe ich doch niemals!\""
+    "btnOne": "Bedanke dich und gehe weiter",
+    "btnTwo": "Sage: \"Das schaffe ich doch niemals!\""
   }
 }, {
   "path": "5",
   "question": "Muslim hat die Hoffnung in dir aufgegeben und lässt dich ab sofort in Ruhe. Du hast das Spiel gewonnen, aber um welchen Preis? Du bist immernoch der gleiche loser wie immer.",
   "answers": {
-    "aEins": "",
-    "aZwei": ""
+    "btnOne": "",
+    "btnTwo": ""
   }
 }, {
   "path": "6",
   "question": "Du bist auf dem Weg nach Hause und siehst plötzlich eine merkwürdige alte Dame. Sie scheint was von dir zu wollen. Was machst du?",
   "answers": {
-    "aEins": "Sehen was sie zu sagen hat",
-    "aZwei": "Ignorieren und weitergehen"
+    "btnOne": "Sehen was sie zu sagen hat",
+    "btnTwo": "Ignorieren und weitergehen"
   }
 }, {
   "path": "7",
   "question": "\"Um die *röps* ‒ Antwort auf deine Fragen zu finden, musst du nach einem weißen Dreieck in einer roten Fläche suchen!\"",
   "answers": {
-    "aEins": "Gehe ihren Tipp nach und such nach dem Dreieck",
-    "aZwei": "Versuche sie zu töten"
+    "btnOne": "Gehe ihren Tipp nach und such nach dem Dreieck",
+    "btnTwo": "Versuche sie zu töten"
   }
 }, {
   "path": "8",
   "question": "Du gehst ihr aus dem Weg. \"Oh du arme Seele. Hoffentlich kann dir jemand anderes helfen\", sagt sie mit einer sehr rauen Stimme.",
   "answers": {
-    "aEins": "Versuche sie zu töten",
-    "aZwei": "Gehe zu ihr zurück und frage sie wie man dir helfen könnte"
+    "btnOne": "Versuche sie zu töten",
+    "btnTwo": "Gehe zu ihr zurück und frage sie wie man dir helfen könnte"
   }
 }, {
   "path": "9",
   "question": "Du holst dein Messer raus und stichst ihr in den Hals. Nach ein paar Sekunden merkst du wa du getan hast. Jetzt fliehst du.",
   "answers": {
-    "aEins": "Lass ihre Leiche liegen und renn in dein abgelegenes Haus",
-    "aZwei": "Schmeiß die Leiche in ein nahgelegenes Teich"
+    "btnOne": "Lass ihre Leiche liegen und renn in dein abgelegenes Haus",
+    "btnTwo": "Schmeiß die Leiche in ein nahgelegenes Teich"
   }
 }, {
   "path": "10",
   "question": "Nach paar mal googlen, hast du 2 Sachen gefunden, Illuminati und Youtube. Welche der beiden Dinge gehst du nach?",
   "answers": {
-    "aEins": "Illuminati 👁",
-    "aZwei": "Youtube ▶"
+    "btnOne": "Illuminati 👁",
+    "btnTwo": "Youtube ▶"
   }
 }, {
   "path": "11",
   "question": "Weil du nicht im Inkognito Modus nach Illuminati recherchiert hast, wurdest von zwei mysteriösen Männern besucht. Sie fragen: \"Wie lautet der Code?\"",
   "answers": {
-    "aEins": "666",
-    "aZwei": "Erdbeermarmelade"
+    "btnOne": "666",
+    "btnTwo": "Erdbeermarmelade"
   }
 }, {
   "path": "12",
   "question": "Du suchst nach \"Hintergrundrauschen entfernen\". Du wirst fündig und schaffst es nach knapp einem Monat, das Gelernte in Praxis umzusetzen. Jemand klingelt.",
   "answers": {
-    "aEins": "Tür aufmachen",
-    "aZwei": ""
+    "btnOne": "Tür aufmachen",
+    "btnTwo": ""
   }
 }, {
   "path": "13",
   "question": "Es ist Muslim. Er fragt wie der Stand ist. Wie antwortest du?",
   "answers": {
-    "aEins": "\"Ich töte dich jetzt\"",
-    "aZwei": "\"Ich habs geschafft. Ich kann jetzt das Hintergrundrauschen entfernen!\""
+    "btnOne": "\"Ich töte dich jetzt\"",
+    "btnTwo": "\"Ich habs geschafft. Ich kann jetzt das Hintergrundrauschen entfernen!\""
   }
 }, {
   "path": "14",
   "question": "\"Falsche Antwort, es gibt keinen.\" Du stirbst direkt nach diesem Satz.",
   "answers": {
-    "aEins": "",
-    "aZwei": ""
+    "btnOne": "",
+    "btnTwo": ""
   }
 }, {
   "path": "15",
   "question": "Er tötet dich zuerst.",
   "answers": {
-    "aEins": "",
-    "aZwei": ""
+    "btnOne": "",
+    "btnTwo": ""
   }
 }, {
   "path": "16",
   "question": "Muslim hat gesehen, wie du auf \"Ich töte dich jetzt drücken wolltest\". Aufgrund dessen tötet er dich. Sorry, aber für Andreas gibt es kein Happy End.",
   "answers": {
-    "aEins": "",
-    "aZwei": ""
+    "btnOne": "",
+    "btnTwo": ""
   }
 }, {
   "path": "17",
   "question": "Ein Rentner sah die Leiche kurze Zeit später. Die Polizei ermittelt und ist nach kurzer Zeit erfolgreich. Du sitzt lebenslänglich.",
   "answers": {
-    "aEins": "",
-    "aZwei": ""
+    "btnOne": "",
+    "btnTwo": ""
   }
 }, {
   "path": "18",
   "question": "Ein Paar hat die Leiche ein Tag später entdeckt. Die Polizei ermittelt und ist nach kurzer Zeit erfolgreich. Du sitzt lebenslänglich.",
   "answers": {
-    "aEins": "",
-    "aZwei": ""
+    "btnOne": "",
+    "btnTwo": ""
   }
 }]

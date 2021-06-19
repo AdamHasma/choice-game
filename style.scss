@@ -1,6 +1,7 @@
 $primary: #E6E6E6;
 $secondary: #2E3031;
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Space+Mono:wght@400;700&display=swap');
 
 * {
   margin: 0;
@@ -237,7 +238,12 @@ input {
   width: 33ch;
   min-width: 4ch !important;
   font-size: 1rem;
-  font-family: monospace;
+  font-family: 'IBM Plex Mono', monospace;
+  transition: border .3s;
+
+  &:focus{
+    border-bottom: 2px solid rgba(252, 255, 0, 0.55);
+  }
 }
 
 input#input-2{
@@ -248,4 +254,11 @@ input#input-2{
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.btn-box{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
 }
